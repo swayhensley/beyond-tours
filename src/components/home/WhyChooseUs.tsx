@@ -25,23 +25,28 @@ const benefits = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 px-[8%] bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Travel With Us?</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <section id="why-choose-us" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-100 to-transparent" />
+      <div className="container-custom">
+        <div className="text-center mb-20 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Why Beyond Tours?</span>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Expertise You Can <span className="text-[#e67e22]">Trust</span></h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We go above and beyond to ensure your Kenyan adventure is nothing short of extraordinary.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-6 rounded-xl hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-              <div className="mb-6 p-4 bg-orange-50 rounded-full">
-                {benefit.icon}
+            <div key={index} className="flex flex-col items-center text-center p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 border border-gray-50 bg-gray-50/30 hover:bg-white group">
+              <div className="mb-8 p-5 bg-orange-50 rounded-2xl group-hover:bg-[#e67e22] group-hover:text-white transition-all duration-500 transform group-hover:rotate-6">
+                {/* Clone the icon to change its color on hover if it's a simple Lucide component */}
+                <div className="group-hover:text-white transition-colors duration-500">
+                  {benefit.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-[#e67e22] transition-colors">{benefit.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-[16px]">
                 {benefit.description}
               </p>
             </div>

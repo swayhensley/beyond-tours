@@ -25,11 +25,18 @@ const destinations = [
 
 export default function DestinationsSection() {
   return (
-    <section id="destinations" className="py-20 px-[8%]">
-      <h2 className="text-4xl font-bold text-center mb-12">
-        Where Do You Want to Go?
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section id="destinations" className="py-24 md:py-32 bg-gray-50/30">
+      <div className="container-custom">
+        <div className="text-center mb-16 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Destinations</span>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+            Where Do You Want <span className="text-[#e67e22]">to Go?</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore the most breathtaking locations across Kenya with our local expertise.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {destinations.map((destination) => (
           <DestinationCard
             key={destination.name}
@@ -38,6 +45,7 @@ export default function DestinationsSection() {
             imageUrl={destination.imageUrl}
           />
         ))}
+        </div>
       </div>
     </section>
   )

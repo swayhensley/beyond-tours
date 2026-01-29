@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect, Suspense } from "react"
-import { useSearchParams } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Users, MapPin } from "lucide-react"
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Calendar, Users, MapPin } from "lucide-react";
 
 function BookingForm() {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,27 +23,29 @@ function BookingForm() {
     guests: "1",
     duration: "",
     packageType: "",
-    specialRequests: ""
-  })
+    specialRequests: "",
+  });
 
   useEffect(() => {
-    const dest = searchParams.get("dest")
-    const pkg = searchParams.get("pkg")
-    
-    if (dest || pkg) {
-      setFormData(prev => ({
+    const dest = searchParams.get("dest");
+    const type = searchParams.get("type");
+
+    if (dest || type) {
+      setFormData((prev) => ({
         ...prev,
         destination: dest || prev.destination,
-        packageType: pkg || prev.packageType
-      }))
+        packageType: type || prev.packageType,
+      }));
     }
-  }, [searchParams])
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle booking submission - this would typically send to a backend
-    console.log("Booking submitted:", formData)
-    alert("Thank you for your booking! We'll contact you shortly to confirm your reservation.")
+    console.log("Booking submitted:", formData);
+    alert(
+      "Thank you for your booking! We'll contact you shortly to confirm your reservation.",
+    );
     setFormData({
       name: "",
       email: "",
@@ -47,16 +55,20 @@ function BookingForm() {
       guests: "1",
       duration: "",
       packageType: "",
-      specialRequests: ""
-    })
-  }
+      specialRequests: "",
+    });
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="py-20 px-[8%]">
@@ -64,24 +76,33 @@ function BookingForm() {
         Book Your Adventure
       </h1>
       <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-        Ready to explore Kenya? Fill out the form below to start planning your perfect getaway.
+        Ready to explore Kenya? Fill out the form below to start planning your
+        perfect getaway.
       </p>
 
       <div className="max-w-4xl mx-auto">
         <Card>
           <CardHeader>
             <CardTitle className="text-3xl">Booking Form</CardTitle>
-            <CardDescription>Provide your details and we'll create a customized itinerary for you</CardDescription>
+            <CardDescription>
+              Provide your details and we'll create a customized itinerary for
+              you
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold border-b pb-2">Personal Information</h3>
-                
+                <h3 className="text-xl font-semibold border-b pb-2">
+                  Personal Information
+                </h3>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -97,7 +118,10 @@ function BookingForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -113,7 +137,10 @@ function BookingForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Phone Number *
                     </label>
                     <input
@@ -129,7 +156,10 @@ function BookingForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="guests" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="guests"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Number of Guests *
                     </label>
                     <select
@@ -140,8 +170,10 @@ function BookingForm() {
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#e67e22] focus:border-transparent outline-none"
                     >
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-                        <option key={num} value={num}>{num} {num === 1 ? 'Guest' : 'Guests'}</option>
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                        <option key={num} value={num}>
+                          {num} {num === 1 ? "Guest" : "Guests"}
+                        </option>
                       ))}
                       <option value="10+">10+ Guests</option>
                     </select>
@@ -158,7 +190,10 @@ function BookingForm() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="destination" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="destination"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Preferred Destination *
                     </label>
                     <select
@@ -175,15 +210,20 @@ function BookingForm() {
                       <option value="mombasa">Mombasa</option>
                       <option value="naivasha">Naivasha</option>
                       <option value="amboseli">Amboseli</option>
-                      <option value="diani">Diani Beach</option>
+                      <option value="diani-beach">Diani Beach</option>
                       <option value="tsavo">Tsavo</option>
                       <option value="lamu">Lamu Island</option>
-                      <option value="custom">Custom/Multiple Destinations</option>
+                      <option value="custom">
+                        Custom/Multiple Destinations
+                      </option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="packageType" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="packageType"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Package Type *
                     </label>
                     <select
@@ -205,7 +245,10 @@ function BookingForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="travelDate" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="travelDate"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Travel Date *
                     </label>
                     <input
@@ -215,13 +258,16 @@ function BookingForm() {
                       value={formData.travelDate}
                       onChange={handleChange}
                       required
-                      min={new Date().toISOString().split('T')[0]}
+                      min={new Date().toISOString().split("T")[0]}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#e67e22] focus:border-transparent outline-none"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="duration" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="duration"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Duration (Days) *
                     </label>
                     <select
@@ -249,7 +295,10 @@ function BookingForm() {
 
               {/* Special Requests */}
               <div>
-                <label htmlFor="specialRequests" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="specialRequests"
+                  className="block text-sm font-medium mb-2"
+                >
                   Special Requests or Preferences
                 </label>
                 <textarea
@@ -263,28 +312,33 @@ function BookingForm() {
                 />
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold py-6 text-lg"
               >
                 Submit Booking Request
               </Button>
 
               <p className="text-sm text-gray-500 text-center">
-                * A member of our team will contact you within 24 hours to confirm your booking and discuss payment options.
+                * A member of our team will contact you within 24 hours to
+                confirm your booking and discuss payment options.
               </p>
             </form>
           </CardContent>
         </Card>
       </div>
     </div>
-  )
+  );
 }
 
 export default function BookNowPage() {
   return (
-    <Suspense fallback={<div className="py-20 text-center">Loading booking form...</div>}>
+    <Suspense
+      fallback={
+        <div className="py-20 text-center">Loading booking form...</div>
+      }
+    >
       <BookingForm />
     </Suspense>
-  )
+  );
 }
