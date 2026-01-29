@@ -32,7 +32,7 @@ export default function AboutUs() {
           </p>
           <div className="pt-10">
             <Link href="/contact" className="inline-block">
-              <Button size="xl" className="bg-[#e67e22] hover:bg-[#d67219] text-white rounded-2xl shadow-xl shadow-orange-100 transition-all hover:-translate-y-1">
+              <Button size="lg" className="bg-[#e67e22] hover:bg-[#d67219] text-white rounded-2xl shadow-xl shadow-orange-100 transition-all hover:-translate-y-1">
                 Our Full Story
               </Button>
             </Link>
