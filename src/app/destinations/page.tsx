@@ -45,24 +45,28 @@ const allDestinations = [
 
 export default function DestinationsPage() {
   return (
-    <div className="py-20 px-[8%]">
-      <h1 className="text-5xl font-bold text-center mb-6">
-        Our Destinations
-      </h1>
-      <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-        Explore the diverse beauty of Kenya. From wildlife safaris to coastal retreats, 
-        discover your next adventure with Beyond Tours.
-      </p>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {allDestinations.map((destination) => (
-          <DestinationCard
-            key={destination.name}
-            name={destination.name}
-            description={destination.description}
-            imageUrl={destination.imageUrl}
-          />
-        ))}
+    <div className="py-28 md:py-40 bg-gray-50/50">
+      <div className="container-custom">
+        <div className="text-center mb-20 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Our Destinations</span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
+            Explore <span className="text-[#e67e22]">Kenya</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+            Discover the diverse beauty of Kenya, from the untamed savannahs to the crystal-clear coastal waters.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          {allDestinations.map((destination) => (
+            <DestinationCard
+              key={destination.name}
+              name={destination.name}
+              description={destination.description}
+              imageUrl={destination.imageUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -55,54 +55,73 @@ const packages = [
 
 export default function PackagesPage() {
   return (
-    <div className="py-20 px-[8%]">
-      <h1 className="text-5xl font-bold text-center mb-6">
-        Tour Packages
-      </h1>
-      <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-        Choose from our carefully crafted tour packages designed to give you 
-        the best Kenya experience. All packages are customizable to your preferences.
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {packages.map((pkg) => (
-          <Card key={pkg.id} className="flex flex-col hover:shadow-2xl transition-shadow duration-300">
-            <CardHeader>
-              <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-              <CardDescription className="text-base mt-2">{pkg.duration}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="mb-4 text-gray-700">{pkg.description}</p>
-              <div className="space-y-2">
-                <p className="font-semibold text-sm">Package Highlights:</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-600">
-                  {pkg.highlights.map((highlight, index) => (
-                    <li key={index} className="text-sm">{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-between items-center">
-              <span className="text-2xl font-bold text-[#e67e22]">{pkg.price}</span>
-              <Link href={`/book-now?dest=${pkg.name.toLowerCase().includes('mara') ? 'maasai-mara' : pkg.name.toLowerCase().includes('nairobi') ? 'nairobi' : pkg.name.toLowerCase().includes('coastal') ? 'mombasa' : 'custom'}&pkg=${pkg.name.toLowerCase().includes('safari') ? 'safari' : pkg.name.toLowerCase().includes('coastal') ? 'beach' : 'custom'}`}>
-                <Button className="bg-[#e67e22] hover:bg-[#d67219]">
-                  Book Now
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+    <div className="py-28 md:py-40 bg-white">
+      <div className="container-custom">
+        <div className="text-center mb-20 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Our Packages</span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
+            Handpicked <span className="text-[#e67e22]">Adventures</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+            Choose from our carefully crafted tour packages designed to give you 
+            the best Kenya experience.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {packages.map((pkg) => (
+            <Card key={pkg.id} className="flex flex-col border-none shadow-lg hover:shadow-2xl transition-all duration-500 rounded-3xl overflow-hidden hover:-translate-y-2 bg-gray-50/50">
+              <CardHeader className="pt-8 pb-4">
+                <CardTitle className="text-2xl font-black text-gray-900">{pkg.name}</CardTitle>
+                <CardDescription className="text-base font-bold text-[#e67e22] mt-1 uppercase tracking-wider">{pkg.duration}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow pb-8">
+                <p className="mb-6 text-gray-600 leading-relaxed">{pkg.description}</p>
+                <div className="space-y-3 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                  <p className="font-bold text-gray-900 text-sm flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#e67e22] rounded-full"></span>
+                    Package Highlights:
+                  </p>
+                  <ul className="space-y-2">
+                    {pkg.highlights.map((highlight, index) => (
+                      <li key={index} className="text-sm text-gray-600 flex items-center gap-2">
+                        <span className="text-[#e67e22]">✓</span>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+              <CardFooter className="flex flex-col gap-4 pb-10 px-8">
+                <div className="w-full flex justify-between items-center mb-2">
+                  <span className="text-sm font-bold text-gray-400">STARTING FROM</span>
+                  <span className="text-2xl font-black text-gray-900">{pkg.price}</span>
+                </div>
+                <Link href={`/book-now?dest=${pkg.name.toLowerCase().includes('mara') ? 'maasai-mara' : pkg.name.toLowerCase().includes('nairobi') ? 'nairobi' : pkg.name.toLowerCase().includes('coastal') ? 'mombasa' : 'custom'}&type=${pkg.name.toLowerCase().includes('safari') ? 'safari' : pkg.name.toLowerCase().includes('coastal') ? 'beach' : 'custom'}`} className="w-full">
+                  <Button size="xl" className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white rounded-2xl shadow-xl shadow-orange-100 transition-all active:scale-95 leading-none">
+                    Book Now
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
 
-      <div className="mt-16 text-center">
-        <p className="text-lg mb-4">
-          Don't see what you're looking for? We offer custom packages tailored to your needs.
-        </p>
-        <Link href="/contact">
-          <Button size="lg" variant="outline" className="border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white">
-            Request Custom Package
-          </Button>
-        </Link>
+        <div className="mt-24 text-center bg-gray-900 text-white p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#e67e22]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-5xl font-black mb-6">Need a Custom <span className="text-[#e67e22]">Itinerary?</span></h2>
+            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-medium">
+              Don't see exactly what you're looking for? We specialize in creating 
+              one-of-a-kind travel experiences tailored specifically to you.
+            </p>
+            <Link href="/contact">
+              <Button size="xl" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100 rounded-2xl font-black px-16 shadow-xl transition-all hover:-translate-y-1 active:scale-95 leading-none">
+                Request Custom Package
+              </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )

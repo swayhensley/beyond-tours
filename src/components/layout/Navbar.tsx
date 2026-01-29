@@ -16,7 +16,6 @@ export default function Navbar() {
     { href: "/#why-choose-us", label: "Services" },
     { href: "/destinations", label: "Destinations" },
     { href: "/#packages", label: "Packages" },
-    { href: "/#testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
   ]
 
