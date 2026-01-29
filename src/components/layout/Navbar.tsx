@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Book Now Button - Desktop */}
         <div className="hidden lg:flex items-center gap-4">
           <Link href="/book-now">
-            <Button className="bg-[#e67e22] hover:bg-[#d67219] text-white font-bold rounded-full px-8 shadow-md hover:shadow-lg transition-all active:scale-95">
+            <Button variant="outline" className="border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white font-bold rounded-full px-8 shadow-md hover:shadow-lg transition-all active:scale-95">
               Book Now
             </Button>
           </Link>

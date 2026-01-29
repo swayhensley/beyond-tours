@@ -98,7 +98,7 @@ export default function PackagesPage() {
                   <span className="text-2xl font-black text-gray-900">{pkg.price}</span>
                 </div>
                 <Link href={`/book-now?dest=${pkg.name.toLowerCase().includes('mara') ? 'maasai-mara' : pkg.name.toLowerCase().includes('nairobi') ? 'nairobi' : pkg.name.toLowerCase().includes('coastal') ? 'mombasa' : 'custom'}&type=${pkg.name.toLowerCase().includes('safari') ? 'safari' : pkg.name.toLowerCase().includes('coastal') ? 'beach' : 'custom'}`} className="w-full">
-                  <Button size="xl" className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white rounded-2xl shadow-xl shadow-orange-100 transition-all active:scale-95 leading-none">
+                  <Button variant="outline" size="xl" className="w-full border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white rounded-2xl shadow-xl shadow-orange-100 transition-all active:scale-95 leading-none font-bold">
                     Book Now
                   </Button>
                 </Link>

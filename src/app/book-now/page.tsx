@@ -75,8 +75,8 @@ function BookingForm() {
       <div className="container-custom">
         <div className="text-center mb-20 space-y-4">
           <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Booking Request</span>
-          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
-            Book Your <span className="text-[#e67e22]">Adventure</span>
+          <h1 className="text-5xl md:text-7xl font-black text-[#e67e22] tracking-tight">
+            Book Your Adventure
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Ready to explore Kenya? Fill out the form below and our team will 

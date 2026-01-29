@@ -76,7 +76,7 @@ export default function FeaturedPackages() {
               </CardContent>
               <CardFooter className="pt-0 pb-10 px-8">
                 <Link href={`/book-now?dest=${pkg.location.toLowerCase().replace(/\s+/g, '-')}&type=${pkg.id === 2 ? 'beach' : 'safari'}`} className="w-full">
-                  <Button size="xl" className="w-full bg-gray-900 hover:bg-[#e67e22] text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-orange-200">
+                  <Button variant="outline" size="xl" className="w-full border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-orange-200 leading-none">
                     Book This Adventure
                   </Button>
                 </Link>
