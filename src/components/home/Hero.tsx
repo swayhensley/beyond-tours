@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Link href="/destinations" className="w-full sm:w-auto">
             <Button 
-              size="xl"
+              size="lg"
               className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold rounded-full shadow-lg hover:shadow-[#e67e22]/20 transition-all hover:-translate-y-1 leading-none"
             >
               Explore Destinations
@@ -28,7 +28,7 @@ export default function Hero() {
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
             <Button 
-              size="xl"
+              size="lg"
               variant="secondary"
               className="w-full bg-white/10 backdrop-blur-md text-white border-2 border-white/20 hover:bg-white/20 font-bold rounded-full transition-all hover:-translate-y-1 leading-none"
             >
