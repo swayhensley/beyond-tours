@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function AboutUs() {
   return (
-    <section id="about-us" className="py-24 md:py-32 bg-gray-50/50">
+    <section id="about-us" className="py-28 md:py-40 bg-gray-50/50">
       <div className="container-custom flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         {/* Image side */}
         <div className="w-full lg:w-1/2 relative group">

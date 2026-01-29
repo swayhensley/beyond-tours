@@ -37,9 +37,9 @@ html {
   --radius: 0.75rem;
 
   /* Custom Container */
-  --container-max-width: 1280px;
-  --section-spacing: 6rem;
-  --section-spacing-mobile: 4rem;
+  --container-max-width: 1400px;
+  --section-spacing: 8rem;
+  --section-spacing-mobile: 6rem;
 }
 
 @theme inline {

@@ -32,7 +32,7 @@ const featuredPackages = [
 
 export default function FeaturedPackages() {
   return (
-    <section id="packages" className="py-24 md:py-32 bg-white relative">
+    <section id="packages" className="py-28 md:py-40 bg-white relative">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="space-y-4">

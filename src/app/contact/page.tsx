@@ -30,17 +30,21 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="py-20 px-[8%]">
-      <h1 className="text-5xl font-bold text-center mb-6">
-        Contact Us
-      </h1>
-      <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-        Have questions or ready to start planning your adventure? 
-        We're here to help make your Kenya experience unforgettable.
-      </p>
+    <div className="py-24 md:py-32 bg-gray-50/30">
+      <div className="container-custom">
+        <div className="text-center mb-16 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Get In Touch</span>
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">
+            Contact Us
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Have questions or ready to start planning your adventure? 
+            We're here to help make your Kenya experience unforgettable.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+          {/* Contact Form */}
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl">Send us a Message</CardTitle>
@@ -191,6 +195,7 @@ export default function ContactPage() {
             </CardContent>
           </Card>
         </div>
+      </div>
       </div>
     </div>
   )

@@ -25,7 +25,7 @@ const destinations = [
 
 export default function DestinationsSection() {
   return (
-    <section id="destinations" className="py-24 md:py-32 bg-gray-50/30">
+    <section id="destinations" className="py-28 md:py-40 bg-gray-50/30 border-y border-gray-100">
       <div className="container-custom">
         <div className="text-center mb-16 space-y-4">
           <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Destinations</span>
