@@ -32,7 +32,7 @@ const featuredPackages = [
 
 export default function FeaturedPackages() {
   return (
-    <section id="packages" className="py-28 md:py-40 bg-white relative">
+    <section id="packages" className="py-32 md:py-48 bg-white relative">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="space-y-4">
@@ -43,7 +43,7 @@ export default function FeaturedPackages() {
             </p>
           </div>
           <Link href="/packages" className="hidden sm:inline-block">
-            <Button variant="outline" className="border-2 border-orange-100 text-[#e67e22] hover:bg-[#e67e22] hover:text-white hover:border-[#e67e22] px-8 py-6 text-lg rounded-xl transition-all font-bold">
+            <Button variant="outline" size="xl" className="border-2 border-orange-100 text-[#e67e22] hover:bg-[#e67e22] hover:text-white hover:border-[#e67e22] rounded-2xl transition-all">
               View All Packages
             </Button>
           </Link>
@@ -74,9 +74,9 @@ export default function FeaturedPackages() {
                   {pkg.duration}
                 </div>
               </CardContent>
-              <CardFooter className="pt-0 pb-8 px-6">
+              <CardFooter className="pt-0 pb-10 px-8">
                 <Link href={`/book-now?dest=${pkg.location.toLowerCase().replace(/\s+/g, '-')}&type=${pkg.id === 2 ? 'beach' : 'safari'}`} className="w-full">
-                  <Button className="w-full bg-gray-900 hover:bg-[#e67e22] text-white font-bold py-7 text-lg rounded-2xl transition-all shadow-lg hover:shadow-orange-200">
+                  <Button size="xl" className="w-full bg-gray-900 hover:bg-[#e67e22] text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-orange-200">
                     Book This Adventure
                   </Button>
                 </Link>

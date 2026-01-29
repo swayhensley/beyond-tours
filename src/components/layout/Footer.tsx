@@ -56,7 +56,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#e67e22]">📧</span>
-                <span>info@beyondtours.co.ke</span>
+                <span>hensleyomondi@gmail.com</span>
               </li>
             </ul>
           </div>

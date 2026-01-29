@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function AboutUs() {
   return (
-    <section id="about-us" className="py-28 md:py-40 bg-gray-50/50">
+    <section id="about-us" className="py-32 md:py-48 bg-gray-50/50">
       <div className="container-custom flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         {/* Image side */}
         <div className="w-full lg:w-1/2 relative group">
@@ -30,9 +30,9 @@ export default function AboutUs() {
           <p className="text-lg text-gray-600 leading-relaxed">
             From the crimson sunsets of the Maasai Mara to the turquoise waters of the Swahili Coast, our team of local experts is dedicated to curating authentic adventures that go beyond the ordinary. We prioritize sustainable travel and meaningful encounters that support local communities.
           </p>
-          <div className="pt-6">
+          <div className="pt-10">
             <Link href="/contact" className="inline-block">
-              <Button size="lg" className="bg-[#e67e22] hover:bg-[#d67219] text-white px-10 py-7 text-lg rounded-xl shadow-lg shadow-[#e67e22]/20 transition-all hover:-translate-y-1">
+              <Button size="xl" className="bg-[#e67e22] hover:bg-[#d67219] text-white rounded-2xl shadow-xl shadow-orange-100 transition-all hover:-translate-y-1">
                 Our Full Story
               </Button>
             </Link>

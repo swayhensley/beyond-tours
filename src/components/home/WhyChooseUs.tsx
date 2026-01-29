@@ -25,7 +25,7 @@ const benefits = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-28 md:py-40 bg-white relative overflow-hidden">
+    <section id="why-choose-us" className="py-32 md:py-48 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-100 to-transparent" />
       <div className="container-custom">
         <div className="text-center mb-20 space-y-4">

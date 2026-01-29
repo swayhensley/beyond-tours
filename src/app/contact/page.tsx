@@ -30,20 +30,19 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="py-24 md:py-32 bg-gray-50/30">
+    <div className="py-28 md:pt-40 md:pb-64 bg-gray-50/50">
       <div className="container-custom">
-        <div className="text-center mb-16 space-y-4">
-          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Get In Touch</span>
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">
-            Contact Us
+        <div className="text-center mb-24 space-y-4">
+          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Experience Kenya</span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
+            Contact <span className="text-[#e67e22]">Us</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Have questions or ready to start planning your adventure? 
-            We're here to help make your Kenya experience unforgettable.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium">
+            We're here to help make your Kenya adventure truly unforgettable.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 max-w-6xl mx-auto mb-20">
           {/* Contact Form */}
         <Card>
           <CardHeader>
@@ -117,7 +116,8 @@ export default function ContactPage() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold py-6 text-lg"
+                size="xl"
+                className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold shadow-xl shadow-orange-100 transition-all hover:-translate-y-1"
               >
                 Send Message
               </Button>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 <Mail className="w-6 h-6 text-[#e67e22] mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-gray-600">info@beyondtours.co.ke</p>
+                  <p className="text-gray-600">hensleyomondi@gmail.com</p>
                 </div>
               </div>
             </CardContent>
