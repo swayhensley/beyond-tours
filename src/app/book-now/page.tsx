@@ -85,7 +85,7 @@ function BookingForm() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto reveal">
+        <div className="max-w-5xl mx-auto reveal space-y-4">
           <Card className="border-none shadow-2xl rounded-[2.5rem] overflow-hidden">
             <CardHeader className="bg-gray-900 text-white p-10 md:p-14 text-center">
               <CardTitle className="text-3xl md:text-4xl font-black mb-2">
