@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -11,38 +12,45 @@ html {
 }
 
 :root {
-  --background: #f9f9f9;
-  --foreground: #333333;
+  --background: #faf9f6;
+  /* Warm off-white */
+  --foreground: #2d2d2d;
   --brand-primary: #e67e22;
+  /* Safari Orange */
+  --brand-secondary: #2d4a22;
+  /* Jungle Green */
   --brand-dark: #1a1a1a;
 
   /* shadcn/ui variables */
   --card: #ffffff;
-  --card-foreground: #333333;
+  --card-foreground: #2d2d2d;
   --popover: #ffffff;
-  --popover-foreground: #333333;
+  --popover-foreground: #2d2d2d;
   --primary: #e67e22;
   --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
-  --secondary-foreground: #1a1a1a;
+  --secondary: #2d4a22;
+  --secondary-foreground: #ffffff;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
-  --accent: #f3f4f6;
-  --accent-foreground: #1a1a1a;
+  --accent: #fdf2e9;
+  --accent-foreground: #e67e22;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
+  --border: #e2e2e2;
+  --input: #e2e2e2;
   --ring: #e67e22;
-  --radius: 0.75rem;
+  --radius: 1rem;
 
   /* Custom Container */
   --container-max-width: 1400px;
-  --section-spacing: 8rem;
+  --section-spacing: 10rem;
   --section-spacing-mobile: 6rem;
 }
 
 @theme inline {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -75,13 +83,6 @@ html {
   padding-right: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .container-custom {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .container-custom {
     padding-left: 8%;
@@ -92,9 +93,26 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-html {
-  scroll-behavior: smooth;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+}
+
+.text-heading {
+  font-family: var(--font-serif);
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }

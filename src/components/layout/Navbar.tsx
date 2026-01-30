@@ -1,42 +1,60 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/#about-us", label: "About" },
-    { href: "/#why-choose-us", label: "Services" },
+    { href: "/#about-us", label: "Our Story" },
     { href: "/destinations", label: "Destinations" },
-    { href: "/#packages", label: "Packages" },
+    { href: "/#packages", label: "Safaris" },
     { href: "/contact", label: "Contact" },
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-      <div className="container-custom py-4 flex justify-between items-center w-full">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled 
+        ? "bg-white/90 backdrop-blur-md shadow-lg py-3" 
+        : "bg-transparent py-5"
+    }`}>
+      <div className="container-custom flex justify-between items-center w-full">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-black tracking-tighter text-[#e67e22] hover:opacity-90 transition-opacity">
-          BEYOND TOURS
+        <Link href="/" className={`text-2xl font-black tracking-tighter transition-colors duration-500 ${
+          isScrolled ? "text-[#e67e22]" : "text-white"
+        }`}>
+          BEYOND <span className={isScrolled ? "text-secondary" : "text-white/80"}>TOURS</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center gap-6 list-none">
+        <ul className="hidden lg:flex items-center gap-8 list-none">
           {navLinks.map((link) => (
             <li key={link.href + link.label}>
               <Link
                 href={link.href}
-                className="text-gray-600 text-[15px] font-semibold hover:text-[#e67e22] transition-colors duration-300 py-2 relative group"
+                className={`text-[15px] font-bold uppercase tracking-wider transition-colors duration-300 py-2 relative group ${
+                  isScrolled ? "text-gray-700 hover:text-[#e67e22]" : "text-white/90 hover:text-white"
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#e67e22] transition-all duration-300 group-hover:w-full" />
+                <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? "bg-[#e67e22]" : "bg-white"
+                }`} />
               </Link>
             </li>
           ))}
@@ -45,15 +63,23 @@ export default function Navbar() {
         {/* Book Now Button - Desktop */}
         <div className="hidden lg:flex items-center gap-4">
           <Link href="/book-now">
-            <Button variant="outline" className="border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white font-bold rounded-full px-8 shadow-md hover:shadow-lg transition-all active:scale-95">
-              Book Now
+            <Button 
+              className={`font-bold rounded-full px-8 shadow-md hover:shadow-lg transition-all active:scale-95 ${
+                isScrolled 
+                  ? "bg-[#e67e22] hover:bg-[#d67219] text-white" 
+                  : "bg-white text-[#e67e22] hover:bg-[#e67e22] hover:text-white border-none"
+              }`}
+            >
+              Book Your Adventure
             </Button>
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+          className={`lg:hidden p-2 rounded-lg transition-colors ${
+            isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
+          }`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -61,28 +87,22 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation Overlay */}
-      <div 
-        className={`fixed inset-0 bg-black/50 transition-opacity lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
       {/* Mobile Navigation Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[280px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden z-50 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="p-6 flex flex-col h-full">
-          <div className="flex justify-between items-center mb-8">
-            <span className="text-xl font-bold text-[#e67e22]">Menu</span>
-            <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
-              <X size={24} />
+      <div className={`fixed top-0 right-0 h-full w-[300px] bg-white shadow-2xl transform transition-transform duration-500 ease-in-out lg:hidden z-50 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="p-8 flex flex-col h-full">
+          <div className="flex justify-between items-center mb-12">
+            <span className="text-2xl font-black text-[#e67e22] tracking-tighter">BEYOND <span className="text-secondary">TOURS</span></span>
+            <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500">
+              <X size={28} />
             </button>
           </div>
           
-          <ul className="flex flex-col gap-2 list-none overflow-y-auto">
+          <ul className="flex flex-col gap-4 list-none">
             {navLinks.map((link) => (
               <li key={link.href + link.label}>
                 <Link
                   href={link.href}
-                  className="text-gray-800 text-lg font-medium hover:text-[#e67e22] transition-colors block py-3 border-b border-gray-50"
+                  className="text-gray-800 text-xl font-bold uppercase tracking-wide hover:text-[#e67e22] transition-colors block py-3 border-b border-gray-50"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -91,15 +111,24 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto pt-6">
+          <div className="mt-auto">
             <Link href="/book-now" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold rounded-xl py-6 text-lg shadow-lg">
-                Book Your Trip
+              <Button className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold rounded-2xl py-7 text-lg shadow-xl shadow-orange-100">
+                Book Now
               </Button>
             </Link>
           </div>
         </div>
       </div>
+      
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm lg:hidden z-40"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
     </nav>
   )
 }
+

@@ -1,78 +1,96 @@
 import Link from "next/link"
-import { Instagram, MessageCircle, Facebook } from "lucide-react"
+import { Instagram, MessageCircle, Facebook, Mail, MapPin, Phone } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-white pt-24 pb-12">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-secondary text-white pt-24 pb-12 overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/10" />
+      
+      <div className="container-custom relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Company Info */}
-          <div className="space-y-6">
-            <div className="text-3xl font-black tracking-tighter text-[#e67e22]">
-              BEYOND TOURS
-            </div>
-            <p className="text-gray-400 leading-relaxed max-w-xs">
+          <div className="space-y-8">
+            <Link href="/" className="text-3xl font-black tracking-tighter text-white block">
+              BEYOND <span className="text-[#e67e22]">TOURS</span>
+            </Link>
+            <p className="text-gray-400 leading-relaxed font-medium">
               Crafting authentic Kenyan journeys that go beyond the ordinary. 
-              Join us for safaris, coastal escapes, and urban adventures.
+              Join us for safaris, coastal escapes, and urban adventures since 2014.
             </p>
             <div className="flex gap-4">
-              <Link href="https://instagram.com" className="p-2 bg-white/5 rounded-full hover:bg-[#e67e22] transition-all text-gray-400 hover:text-white">
+              <Link href="https://instagram.com" className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-2xl hover:bg-[#e67e22] hover:-translate-y-1 transition-all duration-300 text-white/70 hover:text-white border border-white/10">
                 <Instagram size={20} />
               </Link>
-              <Link href="https://wa.me/254745087969" className="p-2 bg-white/5 rounded-full hover:bg-[#e67e22] transition-all text-gray-400 hover:text-white">
+              <Link href="https://wa.me/254745087969" className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-2xl hover:bg-[#e67e22] hover:-translate-y-1 transition-all duration-300 text-white/70 hover:text-white border border-white/10">
                 <MessageCircle size={20} />
               </Link>
-              <Link href="https://facebook.com" className="p-2 bg-white/5 rounded-full hover:bg-[#e67e22] transition-all text-gray-400 hover:text-white">
+              <Link href="https://facebook.com" className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-2xl hover:bg-[#e67e22] hover:-translate-y-1 transition-all duration-300 text-white/70 hover:text-white border border-white/10">
                 <Facebook size={20} />
               </Link>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-[#e67e22] w-fit pr-4 pb-1">Quick Links</h4>
-            <ul className="space-y-4 text-gray-400">
-              <li><Link href="/#about-us" className="hover:text-[#e67e22] transition-colors">About Us</Link></li>
-              <li><Link href="/destinations" className="hover:text-[#e67e22] transition-colors">Destinations</Link></li>
-              <li><Link href="/#packages" className="hover:text-[#e67e22] transition-colors">Tour Packages</Link></li>
+          <div className="space-y-8">
+            <h4 className="text-xl font-black tracking-tight text-white flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-[#e67e22]" />
+              Quick Links
+            </h4>
+            <ul className="space-y-4 text-gray-400 font-medium">
+              <li><Link href="/#about-us" className="hover:text-[#e67e22] transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-[#e67e22] transition-colors" /> About Us</Link></li>
+              <li><Link href="/destinations" className="hover:text-[#e67e22] transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-[#e67e22] transition-colors" /> Destinations</Link></li>
+              <li><Link href="/#packages" className="hover:text-[#e67e22] transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-[#e67e22] transition-colors" /> Tour Packages</Link></li>
+              <li><Link href="/book-now" className="hover:text-[#e67e22] transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-[#e67e22] transition-colors" /> Book a Trip</Link></li>
             </ul>
           </div>
 
           {/* Contact Details */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-[#e67e22] w-fit pr-4 pb-1">Contact Us</h4>
-            <ul className="space-y-4 text-gray-400">
-              <li className="flex items-start gap-3">
-                <span className="text-[#e67e22]">📍</span>
-                <span>Nairobi, Kenya</span>
+          <div className="space-y-8">
+            <h4 className="text-xl font-black tracking-tight text-white flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-[#e67e22]" />
+              Contact Us
+            </h4>
+            <ul className="space-y-6 text-gray-400 font-medium">
+              <li className="flex items-start gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
+                  <MapPin size={18} />
+                </div>
+                <span className="pt-1">Nairobi, Kenya</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#e67e22]">📞</span>
-                <div>
+              <li className="flex items-start gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
+                  <Phone size={18} />
+                </div>
+                <div className="pt-1">
                   <p>+254 745 087 969</p>
                   <p>+254 700 364 908</p>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#e67e22]">📧</span>
-                <span>hensleyomondi@gmail.com</span>
+              <li className="flex items-start gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
+                  <Mail size={18} />
+                </div>
+                <span className="pt-1 truncate">hensleyomondi@gmail.com</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-[#e67e22] w-fit pr-4 pb-1">Newsletter</h4>
-            <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+          <div className="space-y-8">
+            <h4 className="text-xl font-black tracking-tight text-white flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-[#e67e22]" />
+              Newsletter
+            </h4>
+            <p className="text-gray-400 font-medium leading-relaxed">
               Subscribe to get latest travel updates and special offers.
             </p>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#e67e22] transition-colors"
+                className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-[#e67e22] transition-all w-full"
               />
-              <button className="bg-[#e67e22] hover:bg-[#d67219] text-white font-bold py-3 px-6 rounded-lg transition-all active:scale-95 shadow-lg shadow-[#e67e22]/10">
+              <button className="bg-[#e67e22] hover:bg-[#d67219] text-white font-black py-4 px-8 rounded-2xl transition-all active:scale-[0.98] shadow-2xl shadow-orange-500/10">
                 Subscribe
               </button>
             </div>
@@ -80,14 +98,15 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Beyond Tours. Built with passion in Kenya.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-[#e67e22] transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-[#e67e22] transition-colors">Terms of Service</Link>
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
+          <p>© {new Date().getFullYear()} Beyond Tours. Crafted with passion by <span className="text-white">Hensley Omondi</span>.</p>
+          <div className="flex gap-8">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+

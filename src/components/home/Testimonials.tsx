@@ -23,14 +23,20 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-gray-900 text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-[#e67e22] opacity-10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-blue-500 opacity-5 rounded-full blur-3xl animate-pulse" />
+    <section id="testimonials" className="py-24 md:py-32 bg-secondary text-white overflow-hidden relative">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-[#e67e22] opacity-20 rounded-full blur-[100px] animate-pulse" />
+      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-secondary opacity-30 rounded-full blur-[100px] animate-pulse" />
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-20 space-y-4">
-          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Stories From Our <span className="text-[#e67e22]">Travelers</span></h2>
+          <span className="text-[#e67e22] font-black tracking-[0.3em] uppercase text-sm flex justify-center items-center gap-3">
+            <span className="w-12 h-[1px] bg-[#e67e22]" />
+            Testimonials
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 tracking-tight leading-tight">
+            Stories From Our <span className="text-[#e67e22] italic font-serif">Travelers</span>
+          </h2>
           <div className="flex justify-center gap-1">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-6 h-6 fill-[#e67e22] text-[#e67e22]" />
@@ -40,23 +46,23 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((t, index) => (
-            <div key={index} className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 hover:border-[#e67e22]/50 transition-all duration-500 relative group hover:-translate-y-2">
-              <Quote className="absolute top-8 right-10 w-12 h-12 text-white/5 group-hover:text-[#e67e22]/20 transition-colors" />
-              <div className="flex gap-1 mb-6">
+            <div key={index} className="bg-white/5 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white/10 hover:border-[#e67e22]/50 transition-all duration-700 relative group hover:-translate-y-2">
+              <Quote className="absolute top-10 right-10 w-16 h-16 text-white/5 group-hover:text-[#e67e22]/10 transition-colors duration-700" />
+              <div className="flex gap-1 mb-8">
                 {[...Array(t.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-[#e67e22] text-[#e67e22]" />
                 ))}
               </div>
-              <p className="text-lg md:text-xl italic text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl italic text-gray-200 mb-10 leading-relaxed font-serif">
                 "{t.content}"
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#e67e22] to-orange-400 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+              <div className="flex items-center gap-5">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#e67e22] to-orange-400 rounded-2xl flex items-center justify-center font-black text-white shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-bold text-lg group-hover:text-[#e67e22] transition-colors">{t.name}</p>
-                  <p className="text-gray-500 text-sm font-medium uppercase tracking-wider">{t.role}</p>
+                  <p className="font-black text-xl group-hover:text-[#e67e22] transition-colors duration-500">{t.name}</p>
+                  <p className="text-gray-400 text-xs font-black uppercase tracking-[0.2em]">{t.role}</p>
                 </div>
               </div>
             </div>
@@ -66,3 +72,4 @@ export default function Testimonials() {
     </section>
   )
 }
+
