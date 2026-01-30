@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./style.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import AnimationProvider from "@/components/providers/AnimationProvider";
 
 export const metadata: Metadata = {
   title: "Beyond Tours | Kenya Travel Agency",
@@ -17,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <AnimationProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </AnimationProvider>
       </body>
     </html>
   );

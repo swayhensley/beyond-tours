@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -12,8 +12,8 @@ html {
 }
 
 :root {
-  --background: #faf9f6;
-  /* Warm off-white */
+  --background: #ffffff;
+  /* Pure White */
   --foreground: #2d2d2d;
   --brand-primary: #e67e22;
   /* Safari Orange */
@@ -45,6 +45,7 @@ html {
   --container-max-width: 1400px;
   --section-spacing: 10rem;
   --section-spacing-mobile: 6rem;
+  --primary-black: #000000;
 }
 
 @theme inline {
@@ -115,4 +116,47 @@ h6 {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-section {
+  color: var(--primary-black);
+}
+
+.m-auto {
+  margin: auto;
 }

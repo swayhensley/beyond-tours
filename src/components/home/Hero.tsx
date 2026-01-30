@@ -12,23 +12,23 @@ export default function Hero() {
         }}
       />
 
-      <div className="container-custom relative z-10 text-center text-white">
-        <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+      <div className="container-custom relative z-10 text-left text-white">
+        <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="space-y-4">
-            <span className="inline-block text-[#e67e22] font-extrabold uppercase tracking-[0.3em] text-sm md:text-base animate-pulse">
+            <span className="inline-block text-[#e67e22] font-extrabold uppercase tracking-[0.3em] text-sm md:text-base animate-pulse reveal">
               Experience the Wild
             </span>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.1] tracking-tight">
-              Beyond the <br />
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.1] tracking-tight text-left reveal">
+            Kenya, Beyond the <br />
               <span className="text-white/90 italic font-serif">Horizon</span>
             </h1>
           </div>
           
-          <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed font-sans font-medium">
+          <p className="text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed font-sans font-medium text-left reveal">
             Discover the magic of Kenya through authentic safaris, coastal escapes, and unforgettable urban adventures.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-6 justify-start items-center pt-8">
             <Link href="/destinations" className="w-full sm:w-auto">
               <Button 
                 size="xl"

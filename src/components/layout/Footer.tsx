@@ -3,8 +3,7 @@ import { Instagram, MessageCircle, Facebook, Mail, MapPin, Phone } from "lucide-
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-white pt-24 pb-12 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/10" />
+    <footer className="bg-secondary text-white pt-5 pb-12 overflow-hidden relative mt-5 border-t-4 border-[#e67e22]">
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
@@ -15,7 +14,7 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 leading-relaxed font-medium">
               Crafting authentic Kenyan journeys that go beyond the ordinary. 
-              Join us for safaris, coastal escapes, and urban adventures since 2014.
+              Join us for safaris and urban adventures.
             </p>
             <div className="flex gap-4">
               <Link href="https://instagram.com" className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-2xl hover:bg-[#e67e22] hover:-translate-y-1 transition-all duration-300 text-white/70 hover:text-white border border-white/10">
@@ -57,14 +56,17 @@ export default function Footer() {
                 </div>
                 <span className="pt-1">Nairobi, Kenya</span>
               </li>
-              <li className="flex items-start gap-4 group">
+              <li className="flex items-start gap-4 group text-nowrap">
                 <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
                   <Phone size={18} />
                 </div>
-                <div className="pt-1">
-                  <p>+254 745 087 969</p>
-                  <p>+254 700 364 908</p>
+                <span className="pt-1">+254 745 087 969</span>
+              </li>
+              <li className="flex items-start gap-4 group text-nowrap">
+                <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
+                  <Phone size={18} />
                 </div>
+                <span className="pt-1">+254 700 364 908</span>
               </li>
               <li className="flex items-start gap-4 group">
                 <div className="p-3 bg-white/5 rounded-xl text-[#e67e22] group-hover:bg-[#e67e22] group-hover:text-white transition-all">
@@ -99,7 +101,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
-          <p>© {new Date().getFullYear()} Beyond Tours. Crafted with passion by <span className="text-white">Hensley Omondi</span>.</p>
+          <p>© {new Date().getFullYear()} Beyond Tours. Crafted with passion by <span className="text-white">Josephine Njunge</span>.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

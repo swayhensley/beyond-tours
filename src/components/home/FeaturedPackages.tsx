@@ -35,7 +35,7 @@ export default function FeaturedPackages() {
     <section id="packages" className="py-24 md:py-32 bg-[#faf9f6]">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="space-y-4">
+          <div className="space-y-4 reveal-left">
             <span className="text-secondary font-black tracking-[0.2em] uppercase text-sm flex items-center gap-3">
               <span className="w-12 h-[2px] bg-secondary" />
               Our Packages
@@ -57,7 +57,7 @@ export default function FeaturedPackages() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {featuredPackages.map((pkg) => (
-            <Card key={pkg.id} className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 group rounded-[2rem] flex flex-col h-full bg-white ring-1 ring-black/5 hover:ring-secondary/20">
+            <Card key={pkg.id} className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 group rounded-[2rem] flex flex-col h-full bg-white ring-1 ring-black/5 hover:ring-secondary/20 reveal">
               <div className="relative overflow-hidden h-72">
                 <div 
                   className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"

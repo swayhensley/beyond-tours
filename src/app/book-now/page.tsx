@@ -29,6 +29,8 @@ function BookingForm() {
   useEffect(() => {
     const dest = searchParams.get("dest");
     const type = searchParams.get("type");
+    const item = searchParams.get("item");
+    const stems = searchParams.get("stems");
 
     if (dest || type) {
       setFormData((prev) => ({
@@ -39,13 +41,11 @@ function BookingForm() {
     }
   }, [searchParams]);
 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle booking submission - this would typically send to a backend
     console.log("Booking submitted:", formData);
-    alert(
-      "Thank you for your booking! We'll contact you shortly to confirm your reservation.",
-    );
+    alert("Thank you for your booking! We'll contact you shortly to confirm your reservation.");
     setFormData({
       name: "",
       email: "",
@@ -71,23 +71,26 @@ function BookingForm() {
   };
 
   return (
-    <div className="py-28 md:pt-40 md:pb-64 bg-gray-50/50">
+    <div className="pt-32 pb-24 md:pt-48 md:pb-64 bg-[#f5f5f5]">
       <div className="container-custom">
         <div className="text-center mb-20 space-y-4">
-          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Booking Request</span>
-          <h1 className="text-5xl md:text-7xl font-black text-[#e67e22] tracking-tight">
-            Book Your Adventure
+          <span className="text-[#e67e22] font-black tracking-[0.3em] uppercase text-xs reveal">
+            Booking Request
+          </span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight reveal">
+            Book Your <span className="text-[#e67e22]">Adventure</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Ready to explore Kenya? Fill out the form below and our team will 
-            craft the perfect journey for you.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium reveal m-auto">
+            Ready to explore Kenya? Fill out the form below and our team will craft the perfect journey for you.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto reveal">
           <Card className="border-none shadow-2xl rounded-[2.5rem] overflow-hidden">
             <CardHeader className="bg-gray-900 text-white p-10 md:p-14 text-center">
-              <CardTitle className="text-3xl md:text-4xl font-black mb-2">Detailed Itinerary Request</CardTitle>
+              <CardTitle className="text-3xl md:text-4xl font-black mb-2">
+                Detailed Itinerary Request
+              </CardTitle>
               <CardDescription className="text-gray-400 text-lg">
                 Provide your travel details and we'll handle the rest
               </CardDescription>

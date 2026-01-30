@@ -1,13 +1,13 @@
 /* Base Reset */
 * {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     color: #333;
 }
 
@@ -17,8 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: transparent;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -60,26 +59,39 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
     color: white;
+    padding: 0 8%;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    max-width: 800px;
+    letter-spacing: -0.02em;
 }
 
 .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+    max-width: 650px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
 }
 
 .btn-primary {
@@ -146,11 +158,11 @@ body {
 }
 
 .naivasha {
-    background-image: url('https://images.unsplash.com/photo-1627313361012-706788484646?auto=format&fit=crop&w=500');
+    background-image: url('/images/naivasha-hippo.jpg');
 }
 
 .mombasa {
-    background-image: url('https://images.unsplash.com/photo-1585123334904-845d60e97b29?auto=format&fit=crop&w=500');
+    background-image: url('https://unsplash.com/photos/two-brown-camels-walking-on-beach-at-daytime-EtH1GE9qaDg');
 }
 
 .card-body {
@@ -165,8 +177,12 @@ body {
 footer {
     background: #1a1a1a;
     color: white;
-    padding: 60px 8% 20px;
+    padding: 20px 8% 20px;
+    margin-top: 20px;
+    border-top: 4px solid #e67e22;
     text-align: center;
+    margin: 40px 0 0 0;
+    padding: 20px 0 20px 0;
 }
 
 .footer-logo {
@@ -183,3 +199,5 @@ footer {
     gap: 20px;
     color: #888;
 }
+
+footer {}

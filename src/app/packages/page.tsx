@@ -2,67 +2,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-const packages = [
-  {
-    id: 1,
-    name: "Maasai Mara Safari",
-    duration: "3 Days, 2 Nights",
-    price: "KSh 45,000",
-    description: "Experience the Great Migration and witness the Big Five in their natural habitat.",
-    highlights: ["Game drives", "Maasai village visit", "All meals included", "Professional guide"]
-  },
-  {
-    id: 2,
-    name: "Coastal Escape",
-    duration: "5 Days, 4 Nights",
-    price: "KSh 65,000",
-    description: "Relax on pristine beaches and explore the rich Swahili culture of Mombasa and Diani.",
-    highlights: ["Beach resort", "Old town tour", "Water sports", "Seafood dinner"]
-  },
-  {
-    id: 3,
-    name: "Nairobi City Tour",
-    duration: "1 Day",
-    price: "KSh 12,000",
-    description: "Discover the vibrant capital city where modern life meets wildlife.",
-    highlights: ["National Park visit", "Giraffe Centre", "Elephant Orphanage", "City landmarks"]
-  },
-  {
-    id: 4,
-    name: "Rift Valley Adventure",
-    duration: "4 Days, 3 Nights",
-    price: "KSh 55,000",
-    description: "Explore the stunning Rift Valley with lakes, volcanoes, and incredible biodiversity.",
-    highlights: ["Lake Naivasha boat ride", "Hell's Gate cycling", "Crescent Island walk", "Hot springs"]
-  },
-  {
-    id: 5,
-    name: "Mt. Kenya Expedition",
-    duration: "7 Days, 6 Nights",
-    price: "KSh 95,000",
-    description: "Challenge yourself with a trek to Africa's second-highest peak.",
-    highlights: ["Professional guides", "Camping equipment", "All permits", "Summit attempt"]
-  },
-  {
-    id: 6,
-    name: "Amboseli Wildlife Explorer",
-    duration: "3 Days, 2 Nights",
-    price: "KSh 48,000",
-    description: "Photograph elephants with Mt. Kilimanjaro as your backdrop.",
-    highlights: ["Game drives", "Bird watching", "Sunset views", "Luxury lodge"]
-  }
-]
+import { packages } from "@/data/packages"
 
 export default function PackagesPage() {
   return (
-    <div className="py-28 md:py-40 bg-white">
+    <div className="pt-32 pb-24 md:pt-48 md:pb-40 bg-[#f5f5f5]">
       <div className="container-custom">
         <div className="text-center mb-20 space-y-4">
-          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Our Packages</span>
-          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
+          <span className="text-[#e67e22] font-black tracking-[0.3em] uppercase text-xs reveal">Our Packages</span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight reveal">
             Handpicked <span className="text-[#e67e22]">Adventures</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium reveal">
             Choose from our carefully crafted tour packages designed to give you 
             the best Kenya experience.
           </p>
@@ -70,53 +21,61 @@ export default function PackagesPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {packages.map((pkg) => (
-            <Card key={pkg.id} className="flex flex-col border-none shadow-lg hover:shadow-2xl transition-all duration-500 rounded-3xl overflow-hidden hover:-translate-y-2 bg-gray-50/50">
-              <CardHeader className="pt-8 pb-4">
-                <CardTitle className="text-2xl font-black text-gray-900">{pkg.name}</CardTitle>
-                <CardDescription className="text-base font-bold text-[#e67e22] mt-1 uppercase tracking-wider">{pkg.duration}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow pb-8">
-                <p className="mb-6 text-gray-600 leading-relaxed">{pkg.description}</p>
-                <div className="space-y-3 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                  <p className="font-bold text-gray-900 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#e67e22] rounded-full"></span>
-                    Package Highlights:
-                  </p>
-                  <ul className="space-y-2">
-                    {pkg.highlights.map((highlight, index) => (
-                      <li key={index} className="text-sm text-gray-600 flex items-center gap-2">
-                        <span className="text-[#e67e22]">✓</span>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
+            <Link key={pkg.id} href={`/book-now?dest=${pkg.destination}&type=${pkg.type}`} className="block group reveal">
+              <Card className="flex flex-col h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2 bg-white ring-1 ring-black/5">
+                <div className="relative h-64 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
+                    style={{ backgroundImage: `url('${pkg.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-sm font-black text-[#e67e22]">
+                    {pkg.price}
+                  </div>
                 </div>
-              </CardContent>
-              <CardFooter className="flex flex-col gap-4 pb-10 px-8">
-                <div className="w-full flex justify-between items-center mb-2">
-                  <span className="text-sm font-bold text-gray-400">STARTING FROM</span>
-                  <span className="text-2xl font-black text-gray-900">{pkg.price}</span>
-                </div>
-                <Link href={`/book-now?dest=${pkg.name.toLowerCase().includes('mara') ? 'maasai-mara' : pkg.name.toLowerCase().includes('nairobi') ? 'nairobi' : pkg.name.toLowerCase().includes('coastal') ? 'mombasa' : 'custom'}&type=${pkg.name.toLowerCase().includes('safari') ? 'safari' : pkg.name.toLowerCase().includes('coastal') ? 'beach' : 'custom'}`} className="w-full">
-                  <Button variant="outline" size="xl" className="w-full border-2 border-[#e67e22] text-[#e67e22] hover:bg-[#e67e22] hover:text-white rounded-2xl shadow-xl shadow-orange-100 transition-all active:scale-95 leading-none font-bold">
-                    Book Now
+                
+                <CardHeader className="pt-8 pb-4 px-8">
+                  <CardTitle className="text-2xl font-black text-gray-900 group-hover:text-secondary transition-colors">{pkg.name}</CardTitle>
+                  <CardDescription className="text-sm font-black text-secondary uppercase tracking-widest mt-1">{pkg.duration}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow pb-8 px-8">
+                  <p className="mb-6 text-gray-600 leading-relaxed font-medium">{pkg.description}</p>
+                  <div className="space-y-4 bg-gray-50/50 p-6 rounded-2xl border border-gray-100">
+                    <p className="font-black text-gray-900 text-xs uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-8 h-[1px] bg-[#e67e22]"></span>
+                      Includes
+                    </p>
+                    <ul className="grid grid-cols-1 gap-2">
+                      {pkg.highlights.map((highlight, index) => (
+                        <li key={index} className="text-sm text-gray-600 flex items-center gap-3 font-medium">
+                          <span className="text-[#e67e22] font-bold">✓</span>
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+                <CardFooter className="pt-0 pb-10 px-8">
+                  <Button className="w-full bg-[#1a1a1a] group-hover:bg-secondary text-white font-black rounded-2xl py-7 transition-all shadow-xl group-hover:shadow-secondary/20 active:scale-[0.98]">
+                    Book This Adventure
                   </Button>
-                </Link>
-              </CardFooter>
-            </Card>
+                </CardFooter>
+              </Card>
+            </Link>
           ))}
         </div>
 
-        <div className="mt-24 text-center bg-gray-900 text-white p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#e67e22]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-6">Need a Custom <span className="text-[#e67e22]">Itinerary?</span></h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-medium">
+        <div className="mt-24 text-center bg-secondary text-white p-12 md:p-24 rounded-[3rem] shadow-2xl relative overflow-hidden group reveal">
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary to-[#e67e22]/20 opacity-50 transition-opacity group-hover:opacity-70" />
+          <div className="relative z-10 space-y-8">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight">Need a Custom <br/><span className="text-[#e67e22] italic font-serif">Itinerary?</span></h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto font-medium leading-relaxed
+             m-auto">
               Don't see exactly what you're looking for? We specialize in creating 
               one-of-a-kind travel experiences tailored specifically to you.
             </p>
-            <Link href="/contact">
-              <Button size="xl" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100 rounded-2xl font-black px-16 shadow-xl transition-all hover:-translate-y-1 active:scale-95 leading-none">
+            <Link href="/contact" className="inline-block">
+              <Button size="xl" className="bg-white text-secondary hover:bg-[#e67e22] hover:text-white rounded-full font-black px-16 py-8 shadow-2xl transition-all hover:-translate-y-1 active:scale-95 text-xl">
                 Request Custom Package
               </Button>
             </Link>

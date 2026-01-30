@@ -2,12 +2,15 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +32,16 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? "bg-white/90 backdrop-blur-md shadow-lg py-3" 
+      isScrolled || !isHomePage
+        ? "bg-white/95 backdrop-blur-md shadow-lg py-3" 
         : "bg-transparent py-5"
     }`}>
       <div className="container-custom flex justify-between items-center w-full">
         {/* Logo */}
         <Link href="/" className={`text-2xl font-black tracking-tighter transition-colors duration-500 ${
-          isScrolled ? "text-[#e67e22]" : "text-white"
+          isScrolled || !isHomePage ? "text-[#e67e22]" : "text-white"
         }`}>
-          BEYOND <span className={isScrolled ? "text-secondary" : "text-white/80"}>TOURS</span>
+          BEYOND <span className={isScrolled || !isHomePage ? "text-secondary" : "text-white/80"}>TOURS</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -48,12 +51,12 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`text-[15px] font-bold uppercase tracking-wider transition-colors duration-300 py-2 relative group ${
-                  isScrolled ? "text-gray-700 hover:text-[#e67e22]" : "text-white/90 hover:text-white"
+                  isScrolled || !isHomePage ? "text-gray-700 hover:text-[#e67e22]" : "text-white/90 hover:text-white"
                 }`}
               >
                 {link.label}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled ? "bg-[#e67e22]" : "bg-white"
+                  isScrolled || !isHomePage ? "" : ""
                 }`} />
               </Link>
             </li>
@@ -65,7 +68,7 @@ export default function Navbar() {
           <Link href="/book-now">
             <Button 
               className={`font-bold rounded-full px-8 shadow-md hover:shadow-lg transition-all active:scale-95 ${
-                isScrolled 
+                isScrolled || !isHomePage
                   ? "bg-[#e67e22] hover:bg-[#d67219] text-white" 
                   : "bg-white text-[#e67e22] hover:bg-[#e67e22] hover:text-white border-none"
               }`}
@@ -78,7 +81,7 @@ export default function Navbar() {
         {/* Mobile Menu Toggle */}
         <button
           className={`lg:hidden p-2 rounded-lg transition-colors ${
-            isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
+            isScrolled || !isHomePage ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
           }`}
           onClick={toggleMenu}
           aria-label="Toggle menu"

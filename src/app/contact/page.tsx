@@ -33,18 +33,19 @@ export default function ContactPage() {
     <div className="py-28 md:pt-40 md:pb-64 bg-gray-50/50">
       <div className="container-custom">
         <div className="text-center mb-24 space-y-4">
-          <span className="text-[#e67e22] font-bold tracking-widest uppercase text-sm">Experience Kenya</span>
-          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight">
+          <span className="text-[#e67e22] font-black tracking-[0.3em] uppercase text-xs reveal">Experience Kenya</span>
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight reveal">
             Contact <span className="text-[#e67e22]">Us</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium reveal">
             We're here to help make your Kenya adventure truly unforgettable.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 max-w-6xl mx-auto mb-20">
           {/* Contact Form */}
-        <Card>
+        <div className="reveal-left">
+          <Card className="rounded-[2.5rem] shadow-2xl border-none">
           <CardHeader>
             <CardTitle className="text-2xl">Send us a Message</CardTitle>
             <CardDescription>Fill out the form below and we'll respond within 24 hours</CardDescription>
@@ -124,10 +125,11 @@ export default function ContactPage() {
             </form>
           </CardContent>
         </Card>
+        </div>
 
         {/* Contact Information */}
-        <div className="space-y-6">
-          <Card>
+        <div className="space-y-6 reveal-right">
+          <Card className="rounded-[2.5rem] shadow-xl border-none">
             <CardHeader>
               <CardTitle className="text-2xl">Get in Touch</CardTitle>
               <CardDescription>We're available 24/7 to assist you</CardDescription>
@@ -160,7 +162,7 @@ export default function ContactPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="rounded-[2.5rem] shadow-xl border-none">
             <CardHeader>
               <CardTitle className="text-2xl">Follow Us</CardTitle>
               <CardDescription>Stay updated on our latest tours and offers</CardDescription>
@@ -196,7 +198,7 @@ export default function ContactPage() {
           </Card>
         </div>
       </div>
-      </div>
     </div>
+  </div>
   )
 }
