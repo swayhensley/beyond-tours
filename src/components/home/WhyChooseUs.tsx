@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
             Why Beyond Tours?
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight reveal">
-            Expertise You Can <span className="text-[#e67e22] italic font-serif">Trust</span>
+            Expertise You Can <span className="text-[#2d2d2d] italic font-serif">Trust</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium reveal">
             We go above and beyond to ensure your Kenyan adventure is nothing short of extraordinary.

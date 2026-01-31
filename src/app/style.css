@@ -6,6 +6,28 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Restore button padding that was previously from global padding */
+button,
+.btn-primary,
+.btn-secondary,
+.btn-nav,
+[class*="btn"] {
+    padding: 12px 28px;
+}
+
+/* Restore form element padding */
+input,
+textarea,
+select {
+    padding: 10px 15px;
+}
+
+/* Section spacing */
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 body {
     background-color: #ffffff;
     color: #333;
@@ -51,7 +73,7 @@ body {
     background: #e67e22;
     color: white;
     border: none;
-    padding: 10px 25px;
+    padding: 12px 28px;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
@@ -199,5 +221,3 @@ footer {
     gap: 20px;
     color: #888;
 }
-
-footer {}
