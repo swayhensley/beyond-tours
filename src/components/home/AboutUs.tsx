@@ -23,7 +23,7 @@ export default function AboutUs() {
               </div>
 
               {/* Overlapping Secondary Image */}
-              <div className="absolute -bottom-12 -right-8 w-2/5 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white hidden md:block reveal-right transition-transform duration-700 group-hover:-translate-x-4">
+              <div className="absolute bottom-0 -right-8 w-2/5 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white hidden md:block reveal-right transition-transform duration-700 group-hover:-translate-x-4">
                 <div 
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ 

@@ -11,8 +11,8 @@ export default function Home() {
     <div className="overflow-x-hidden !p-0 !m-0">
       <Hero />
       <AboutUs />
-      <WhyChooseUs />
       <DestinationsSection />
+      <WhyChooseUs />
       <FeaturedPackages />
       <Testimonials />
       <FAQ />

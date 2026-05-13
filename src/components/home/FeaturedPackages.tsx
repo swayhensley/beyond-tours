@@ -3,34 +3,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock, MapPin, ArrowRight } from "lucide-react"
 
-const featuredPackages = [
-  {
-    id: 1,
-    name: "Classic Maasai Mara Safari",
-    duration: "3 Days, 2 Nights",
-    location: "Maasai Mara",
-    price: "KSh 45,000",
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 2,
-    name: "Coastal Relaxation Escape",
-    duration: "5 Days, 4 Nights",
-    location: "Diani Beach",
-    price: "KSh 65,000",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 3,
-    name: "Amboseli Elephant Explorer",
-    duration: "3 Days, 2 Nights",
-    location: "Amboseli",
-    price: "KSh 48,000",
-    image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=800&q=80"
-  }
-]
+import { packages } from "@/data/packages"
 
 export default function FeaturedPackages() {
+  const featuredPackages = packages.filter(p => p.type === "all-inclusive").slice(0, 3);
+
   return (
     <section id="packages" className="py-24 md:py-36 bg-white">
       <div className="container-custom">
@@ -57,32 +34,34 @@ export default function FeaturedPackages() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {featuredPackages.map((pkg) => (
-            <Card key={pkg.id} className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 group rounded-[2rem] flex flex-col h-full bg-white ring-1 ring-black/5 hover:ring-secondary/20 reveal">
-              <div className="relative overflow-hidden h-72">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
-                  style={{ backgroundImage: `url('${pkg.image}')` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full text-sm font-black text-[#e67e22] shadow-xl">
-                  {pkg.price}
+            <Card key={pkg.id} className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 group rounded-[2rem] flex flex-col h-full bg-white ring-1 ring-black/5 hover:ring-secondary/20 reveal !p-0">
+              <Link href={`/packages/${pkg.id}`} className="block flex-grow group/link">
+                <div className="relative overflow-hidden h-72 !p-0 bg-white">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center group-hover/link:scale-110 transition-transform duration-1000"
+                    style={{ backgroundImage: `url('${pkg.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full text-sm font-black text-[#e67e22] shadow-xl">
+                    {pkg.price}
+                  </div>
                 </div>
-              </div>
-              <CardHeader className="pt-8 pb-4 px-8 space-y-4">
-                <div className="flex items-center gap-2 text-secondary text-sm font-black uppercase tracking-widest bg-secondary/5 w-fit px-4 py-1.5 rounded-full">
-                  <MapPin size={14} className="fill-secondary/20" />
-                  {pkg.location}
-                </div>
-                <CardTitle className="text-2xl font-black group-hover:text-secondary transition-colors line-clamp-1">{pkg.name}</CardTitle>
-              </CardHeader>
-              <CardContent className="pb-8 px-8 flex-grow">
-                <div className="flex items-center gap-2 text-gray-500 font-bold text-sm">
-                  <Clock size={16} className="text-secondary" />
-                  {pkg.duration}
-                </div>
-              </CardContent>
+                <CardHeader className="pt-8 pb-4 px-8 space-y-4">
+                  <div className="flex items-center gap-2 text-secondary text-sm font-black uppercase tracking-widest bg-secondary/5 w-fit px-4 py-1.5 rounded-full">
+                    <MapPin size={14} className="fill-secondary/20" />
+                    <span className="capitalize">{pkg.destination}</span>
+                  </div>
+                  <CardTitle className="text-2xl font-black group-hover:text-secondary transition-colors line-clamp-1">{pkg.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="pb-8 px-8 flex-grow">
+                  <div className="flex items-center gap-2 text-gray-500 font-bold text-sm">
+                    <Clock size={16} className="text-secondary" />
+                    {pkg.duration}
+                  </div>
+                </CardContent>
+              </Link>
               <CardFooter className="pt-0 pb-10 px-8">
-                <Link href={`/book-now?dest=${pkg.location.toLowerCase().replace(/\s+/g, '-')}&type=${pkg.id === 2 ? 'beach' : 'safari'}`} className="w-full">
+                <Link href={`/packages/${pkg.id}`} className="w-full">
                   <Button className="w-full bg-[#1a1a1a] hover:bg-secondary text-white font-black rounded-2xl py-7 transition-all shadow-xl hover:shadow-secondary/30 active:scale-[0.98]">
                     Book This Adventure
                   </Button>

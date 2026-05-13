@@ -101,7 +101,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
-          <p>© {new Date().getFullYear()} Beyond Tours. Crafted with passion by <span className="text-white">Josephine Njunge</span>.</p>
+          <p>© {new Date().getFullYear()} Beyond Tours. Crafted with passion by <span className="text-white">Hensley Omondi</span>.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

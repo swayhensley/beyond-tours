@@ -16,9 +16,14 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission - this would typically send to a backend
-    console.log("Form submitted:", formData)
-    alert("Thank you for contacting us! We'll get back to you soon.")
+    
+    // Format message for WhatsApp
+    const text = `Hello Beyond Tours, I have an inquiry:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n\n*Message:*\n${formData.message}`;
+
+    const encodedText = encodeURIComponent(text);
+    // Open WhatsApp in a new tab
+    window.open(`https://wa.me/254745087969?text=${encodedText}`, '_blank');
+    
     setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
@@ -148,7 +153,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold mb-1">Phone Numbers</h3>
                   <p className="text-gray-600">+254 745 087 969</p>
-                  <p className="text-gray-600">+254 700 364 908</p>
+                  <p className="text-gray-600">+254 714 095 772</p>
                 </div>
               </div>
 

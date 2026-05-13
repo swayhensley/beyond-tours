@@ -10,9 +10,9 @@ interface DestinationCardProps {
 export default function DestinationCard({ name, description, imageUrl, href }: DestinationCardProps) {
   return (
     <Link href={href} className="block group reveal">
-      <div className="bg-white rounded-[2rem] overflow-hidden shadow-xl shadow-black/5 border border-gray-100 hover:border-secondary/20 hover:shadow-secondary/5 transition-all duration-700 hover:-translate-y-2 h-full">
+      <div className="bg-white rounded-[2rem] overflow-hidden shadow-xl shadow-black/5 border border-gray-100 hover:border-secondary/20 hover:shadow-secondary/5 transition-all duration-700 hover:-translate-y-2 h-full !p-0">
         {/* Image Container */}
-        <div className="relative h-64 sm:h-56 lg:h-72 overflow-hidden">
+        <div className="relative h-64 sm:h-56 lg:h-72 overflow-hidden !p-0">
           <div 
             className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-[2000ms] ease-out"
             style={{ backgroundImage: `url('${imageUrl}')` }}

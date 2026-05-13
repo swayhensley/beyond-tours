@@ -4,6 +4,7 @@ import "./style.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AnimationProvider from "@/components/providers/AnimationProvider";
+import WhatsAppWidget from "@/components/shared/WhatsAppWidget";
 
 export const metadata: Metadata = {
   title: "Beyond Tours | Kenya Travel Agency",
@@ -23,6 +24,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <WhatsAppWidget />
         </AnimationProvider>
       </body>
     </html>

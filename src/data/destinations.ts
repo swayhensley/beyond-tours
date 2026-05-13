@@ -3,6 +3,7 @@ export interface DestinationSection {
   title: string;
   description: string;
   image: string;
+  packageId?: number;
   features: string[];
 }
 
@@ -30,13 +31,15 @@ export const destinations: Destination[] = [
         title: "Nairobi Safaris",
         description: "Experience the unique harmony of wildlife and urban life. Visit the Nairobi National Park for a morning game drive, follow it up with feeding giraffes at the Giraffe Centre.",
         image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+        packageId: 7,
         features: ["Nairobi National Park", "David Sheldrick Elephant Orphanage", "Giraffe Centre"]
       },
       {
         id: "mamba-village",
         title: "Mamba Village",
         description: "Discover East Africa's largest crocodile farm. A thrilling experience for families and reptile enthusiasts alike.",
-        image: "https://images.unsplash.com/photo-1590422955030-9759bd6398b3?auto=format&fit=crop&w=800",
+        image: "/images/nairobi/mamba-village-1.jpg",
+        packageId: 8,
         features: ["Crocodile Feeding", "Boat Rides", "Ostrich Park"]
       },
       {
@@ -44,13 +47,15 @@ export const destinations: Destination[] = [
         title: "Snake Park & Aquarium",
         description: "Learn about Kenya's fascinating reptiles and colorful aquatic life in this educational and slightly daring excursion.",
         image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&w=800",
+        packageId: 9,
         features: ["Venomous & Non-venomous Snakes", "Freshwater Aquarium", "Reptile Breeding"]
       },
       {
         id: "ghetto-tours",
         title: "Community (Ghetto) Tours",
         description: "Walk through the resilient communities of Nairobi with local guides to see the incredible creativity and empowerment projects in Kibera.",
-        image: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=800",
+        image: "/images/nairobi/ghetto.webp",
+        packageId: 11,
         features: ["Kibera Guided Walks", "Women's Empowerment Projects", "Local Artisans"]
       },
       {
@@ -58,6 +63,7 @@ export const destinations: Destination[] = [
         title: "National Museums",
         description: "Dive deep into Kenya's heritage, from prehistoric fossils to the colonial era and the struggle for independence.",
         image: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=800",
+        packageId: 9,
         features: ["Nairobi National Museum", "Karen Blixen Museum", "Kenya Railway Museum"]
       }
     ]
@@ -75,6 +81,7 @@ export const destinations: Destination[] = [
         title: "Iconic Game Drives",
         description: "Traverse the vast golden plains in search of lions, leopards, elephants, and more.",
         image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+        packageId: 1,
         features: ["Big Five Tracking", "Sunrise Safaris", "Professional Guides"]
       },
       {
@@ -82,6 +89,7 @@ export const destinations: Destination[] = [
         title: "The Great Migration",
         description: "Be a witness to the spectacular crossing of millions of wildebeest and zebras.",
         image: "https://images.unsplash.com/photo-1534177714502-0ee466d71314?auto=format&fit=crop&w=800",
+        packageId: 1,
         features: ["Mara River Crossing", "Breathtaking Views", "Seasonal Spectacle"]
       }
     ]
@@ -99,6 +107,7 @@ export const destinations: Destination[] = [
         title: "Lake Boat Safaris",
         description: "Get up close with hippos and see eagles dive for fish on the tranquil waters of Lake Naivasha.",
         image: "https://images.unsplash.com/photo-1590422955030-9759bd6398b3?auto=format&fit=crop&w=800",
+        packageId: 4,
         features: ["Hippo Watching", "Bird Photography", "Crescent Island Walk"]
       },
       {
@@ -106,6 +115,7 @@ export const destinations: Destination[] = [
         title: "Hell's Gate National Park",
         description: "The only park where you can bike and hike among zebras and giraffes. Feel the geothermal power.",
         image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&w=800",
+        packageId: 4,
         features: ["Biking with Wildlife", "Rock Climbing", "Natural Hot Springs"]
       }
     ]
@@ -123,6 +133,7 @@ export const destinations: Destination[] = [
         title: "Mombasa Old Town",
         description: "Walk through narrow streets filled with historical architecture, spice markets, and the historic Fort Jesus.",
         image: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=800",
+        packageId: 2,
         features: ["Fort Jesus (UNESCO)", "Ancient Architecture", "Authentic Spices"]
       },
       {
@@ -130,6 +141,7 @@ export const destinations: Destination[] = [
         title: "North Coast Beaches",
         description: "Relax on the silver sands of Nyali and Bamburi, or dive into the Mombasa Marine National Park.",
         image: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=800",
+        packageId: 2,
         features: ["Water Sports", "Snorkeling", "Luxury Resorts"]
       }
     ]
@@ -147,6 +159,7 @@ export const destinations: Destination[] = [
         title: "Elephant Paradise",
         description: "Observe majestic elephant families against the snow-capped peak of Kilimanjaro.",
         image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800",
+        packageId: 6,
         features: ["Elephant Tracking", "Observation Hill", "Kilimanjaro Views"]
       }
     ]
@@ -164,6 +177,7 @@ export const destinations: Destination[] = [
         title: "Ocean Adventures",
         description: "From kite surfing to diving with whale sharks, Diani is a playground for water lovers.",
         image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800",
+        packageId: 2,
         features: ["Scuba Diving", "Kite Surfing", "Traditional Dhow Tours"]
       }
     ]
@@ -181,6 +195,7 @@ export const destinations: Destination[] = [
         title: "Mzima Springs",
         description: "A natural marvel where millions of gallons of crystal clear water emerge from the volcanic rocks.",
         image: "https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&w=800",
+        packageId: 6,
         features: ["Underwater Hippo View", "Lush Oasis", "Volcanic Landscapes"]
       }
     ]
@@ -198,6 +213,7 @@ export const destinations: Destination[] = [
         title: "Traditional Living",
         description: "Experience the slow pace of life in Lamu Town and Shela Village, where every corner tells a story.",
         image: "https://images.unsplash.com/photo-1585123334904-845d60e97b29?auto=format&fit=crop&w=800",
+        packageId: 2,
         features: ["Donkey Transports", "Historical Stone Houses", "Peaceful Atmosphere"]
       }
     ]

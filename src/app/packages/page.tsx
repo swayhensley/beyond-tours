@@ -21,9 +21,9 @@ export default function PackagesPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {packages.map((pkg) => (
-            <Link key={pkg.id} href={`/book-now?dest=${pkg.destination}&type=${pkg.type}`} className="block group reveal">
-              <Card className="flex flex-col h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2 bg-white ring-1 ring-black/5">
-                <div className="relative h-64 overflow-hidden">
+            <Link key={pkg.id} href={`/packages/${pkg.id}`} className="block group reveal">
+              <Card className="flex flex-col h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2 bg-white ring-1 ring-black/5 !p-0">
+                <div className="relative h-64 overflow-hidden !p-0">
                   <div 
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
                     style={{ backgroundImage: `url('${pkg.image}')` }}

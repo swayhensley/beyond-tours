@@ -93,7 +93,7 @@ export default async function DestinationDetailPage({ params }: { params: Promis
                 </div>
 
                 <div className="pt-10">
-                  <Link href={`/book-now?dest=${destination.slug}&type=safari`}>
+                  <Link href={section.packageId ? `/packages/${section.packageId}` : `/book-now?dest=${destination.slug}&type=safari`}>
                     <Button className="bg-secondary hover:bg-[#e67e22] text-white px-12 py-8 rounded-full font-black text-xl transition-all shadow-2xl shadow-secondary/20 active:scale-95">
                       Explore This Experience
                     </Button>
@@ -120,9 +120,9 @@ export default async function DestinationDetailPage({ params }: { params: Promis
               {packages
                 .filter(pkg => pkg.destination === destination.slug)
                 .map((pkg) => (
-                  <Link key={pkg.id} href={`/book-now?dest=${pkg.destination}&type=${pkg.type}`} className="block group reveal">
-                    <Card className="flex flex-col h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2 bg-white ring-1 ring-black/5">
-                      <div className="relative h-64 overflow-hidden">
+                  <Link key={pkg.id} href={`/packages/${pkg.id}`} className="block group reveal">
+                    <Card className="flex flex-col h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2 bg-white ring-1 ring-black/5 !p-0">
+                      <div className="relative h-64 overflow-hidden !p-0">
                         <div 
                           className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
                           style={{ backgroundImage: `url('${pkg.image}')` }}
@@ -180,7 +180,7 @@ export default async function DestinationDetailPage({ params }: { params: Promis
             </p>
             <div className="flex flex-col sm:flex-row gap-8 justify-center pt-8">
               <Link href="/contact">
-                <Button variant="outline" className="border-2 border-white/20 text-white hover:bg-white hover:text-secondary px-16 py-8 rounded-full font-black text-xl transition-all">
+                <Button variant="outline" className="border-2 border-white/20 bg-transparent text-white hover:bg-white hover:text-secondary px-16 py-8 rounded-full font-black text-xl transition-all">
                   Talk to an Expert
                 </Button>
               </Link>
