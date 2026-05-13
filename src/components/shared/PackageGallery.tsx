@@ -56,7 +56,7 @@ export default function PackageGallery({ mainImage, gallery }: { mainImage: stri
         {displayImages.map((img, idx) => (
           <div
             key={idx}
-            className="w-full lg:w-1/3 h-full flex-shrink-0 px-[2px] overflow-hidden"
+            className="w-full lg:w-1/3 h-full flex-shrink-0 px-2 overflow-hidden"
           >
             <div
               className="w-full h-full bg-cover bg-center scale-110"
