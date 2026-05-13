@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+// Trigger build
 import "./globals.css";
 import "./style.css";
 import Navbar from "@/components/layout/Navbar";
