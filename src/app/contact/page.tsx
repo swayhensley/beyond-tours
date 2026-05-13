@@ -35,7 +35,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="py-28 md:pt-40 md:pb-64 bg-gray-50/50">
+    <div className="pt-32 pb-20 md:pt-48 md:pb-64 bg-gray-50/50">
       <div className="container-custom">
         <div className="text-center mb-24 space-y-4">
           <span className="text-[#e67e22] font-black tracking-[0.3em] uppercase text-xs reveal">Experience Kenya</span>
@@ -204,6 +204,5 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  </div>
   )
 }
