@@ -91,7 +91,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[300px] bg-white shadow-2xl transform transition-transform duration-500 ease-in-out lg:hidden z-50 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed inset-y-0 right-0 h-screen w-[300px] bg-white shadow-2xl transform transition-transform duration-500 ease-in-out lg:hidden z-[60] ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="p-8 flex flex-col h-full">
           <div className="flex justify-between items-center mb-12">
             <span className="text-2xl font-black text-[#e67e22] tracking-tighter">BEYOND <span className="text-secondary">TOURS</span></span>
@@ -100,12 +100,12 @@ export default function Navbar() {
             </button>
           </div>
           
-          <ul className="flex flex-col gap-4 list-none">
+          <ul className="flex flex-col gap-2 list-none">
             {navLinks.map((link) => (
               <li key={link.href + link.label}>
                 <Link
                   href={link.href}
-                  className="text-gray-800 text-xl font-bold uppercase tracking-wide hover:text-[#e67e22] transition-colors block py-3 border-b border-gray-50"
+                  className="text-gray-800 text-xl font-bold uppercase tracking-wide hover:text-[#e67e22] transition-colors block py-4 border-b border-gray-50"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -114,7 +114,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto">
+          <div className="mt-auto pt-10">
             <Link href="/book-now" onClick={() => setIsMenuOpen(false)}>
               <Button className="w-full bg-[#e67e22] hover:bg-[#d67219] text-white font-bold rounded-2xl py-7 text-lg shadow-xl shadow-orange-100">
                 Book Now
@@ -127,7 +127,7 @@ export default function Navbar() {
       {/* Overlay */}
       {isMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm lg:hidden z-40"
+          className="fixed inset-0 bg-black/60 backdrop-blur-md lg:hidden z-[55]"
           onClick={() => setIsMenuOpen(false)}
         />
       )}
